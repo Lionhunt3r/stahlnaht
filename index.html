@@ -151,7 +151,41 @@
 
   </div>
 </section>
-  <section id="referenzen"></section>
+  <section id="referenzen" class="py-24 px-5 bg-navy-deep">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-head tracking-[0.3em] text-oak text-xs mb-3">REFERENZEN</p>
+    <h2 class="font-head font-bold text-white text-3xl sm:text-4xl mb-3">Ausgewählte Projekte</h2>
+    <p class="text-silver/70 mb-12 max-w-lg">Eine maßgefertigte Stahltreppe mit Eichenstufen und filigranem Geländer — geplant, gefertigt und montiert von Stahlnaht.</p>
+
+    <!-- To add a new project: copy one button block below and change src/alt. -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <button type="button" onclick="openLightbox('assets/images/treppe-frontal.jpeg','Stahltreppe frontal')"
+              class="reveal gallery-item group relative overflow-hidden rounded-lg aspect-[3/4] bg-navy-light">
+        <img src="assets/images/treppe-frontal.jpeg" alt="Stahltreppe frontal" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <span class="absolute inset-0 bg-navy-deep/0 group-hover:bg-navy-deep/20 transition"></span>
+      </button>
+
+      <button type="button" onclick="openLightbox('assets/images/treppe-galerie.jpeg','Stahltreppe mit Galerie')"
+              class="reveal gallery-item group relative overflow-hidden rounded-lg aspect-[3/4] bg-navy-light">
+        <img src="assets/images/treppe-galerie.jpeg" alt="Stahltreppe mit Galerie" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <span class="absolute inset-0 bg-navy-deep/0 group-hover:bg-navy-deep/20 transition"></span>
+      </button>
+
+      <button type="button" onclick="openLightbox('assets/images/treppe-detail.jpeg','Detail der Stahltreppe')"
+              class="reveal gallery-item group relative overflow-hidden rounded-lg aspect-[3/4] bg-navy-light">
+        <img src="assets/images/treppe-detail.jpeg" alt="Detail der Stahltreppe" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <span class="absolute inset-0 bg-navy-deep/0 group-hover:bg-navy-deep/20 transition"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/90 p-4">
+  <button type="button" onclick="closeLightbox()" aria-label="Schließen"
+          class="absolute top-5 right-6 text-white/80 hover:text-white text-4xl leading-none">&times;</button>
+  <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-full rounded-lg object-contain">
+</div>
   <section id="kontakt"></section>
   <footer id="footer"></footer>
 
@@ -168,6 +202,25 @@
     };
     window.addEventListener('scroll', onScroll);
     onScroll();
+
+    // lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
   </script>
 
 </body>
