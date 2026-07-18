@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stahlnaht Metallbau — Timo Betz | Speyer & Umgebung</title>
+  <meta name="description" content="Stahlnaht Metallbau — Individuelle Stahlkonstruktionen, Geländer, Treppen und Schweißarbeiten mit Präzision. Timo Betz, Speyer und Umgebung.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#1a1a2e', deep: '#14142a', light: '#252546' },
+            silver: '#c0c6d8',
+            oak: '#c9a56a',
+          },
+          fontFamily: {
+            head: ['Oswald', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .font-head { font-family: 'Oswald', sans-serif; }
+    /* fade-in on scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-navy-deep text-silver font-body antialiased">
+
+  <!-- NAV -->
+  <nav id="nav" class="fixed top-0 inset-x-0 z-50 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="#top" class="font-head font-bold tracking-widest text-white text-lg">STAHLNAHT</a>
+      <div class="hidden md:flex items-center gap-8 text-sm tracking-wide">
+        <a href="#leistungen" class="hover:text-white transition">Leistungen</a>
+        <a href="#ueber" class="hover:text-white transition">Über Timo</a>
+        <a href="#referenzen" class="hover:text-white transition">Referenzen</a>
+        <a href="#kontakt" class="hover:text-white transition">Kontakt</a>
+      </div>
+      <a href="https://wa.me/4917682137608" target="_blank" rel="noopener"
+         class="md:hidden text-xs font-semibold bg-silver text-navy-deep px-3 py-2 rounded">WhatsApp</a>
+    </div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- Sections filled by later tasks -->
+  <header id="hero"></header>
+  <section id="leistungen"></section>
+  <section id="ueber"></section>
+  <section id="referenzen"></section>
+  <section id="kontakt"></section>
+  <footer id="footer"></footer>
+
+  <!-- Scripts filled by later tasks -->
+  <script>
+    // nav background on scroll
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 40) {
+        nav.classList.add('bg-navy-deep/95', 'backdrop-blur', 'shadow-lg', 'shadow-black/20');
+      } else {
+        nav.classList.remove('bg-navy-deep/95', 'backdrop-blur', 'shadow-lg', 'shadow-black/20');
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+
+</body>
+</html>
