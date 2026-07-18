@@ -51,7 +51,14 @@ Fixierte, transparente Navigation oben (wird beim Scrollen dezent navy), springt
 2. **Leistungen** — 4 Kacheln: *Geländer & Treppen*, *Individuelle Stahlkonstruktionen*, *Schweißarbeiten*, *Metallbau & Reparaturen*. Jeweils Icon + kurzer Text.
 3. **Über Timo** — Story: handwerklich aufgewachsen → Ausbildung Fluggerätemechaniker → Industriemeister (autodidaktisch) & Schweißer → Selbständigkeit. Betont Präzision/Zuverlässigkeit/langlebige Lösungen. Portrait-Platzhalter (echtes Foto kommt später von Timo).
 4. **Referenzen / Galerie** — echte Treppen-Fotos, groß, im Raster, anklickbar (Lightbox). So gebaut, dass neue Projekte einfach ergänzt werden können.
-5. **Kontakt** — KEIN Formular. Große Direkt-Buttons: **WhatsApp**, **Telegram**, **E-Mail**, **LinkedIn**. Hinweis Region Speyer & Umgebung.
+5. **Kontakt** — KEIN Formular. Große Direkt-Buttons mit konkreten Links:
+   - **WhatsApp** → `https://wa.me/4917682137608`
+   - **Telegram** → `https://t.me/Timobetz`
+   - **Anrufen** → `tel:+4917682137608`
+   - **E-Mail** → `mailto:info@stahlnaht.de`
+   - **LinkedIn** → `https://www.linkedin.com/in/timo-betz-59357b321`
+   - **Instagram** → Platzhalter (kommt später)
+   - Hinweis Region Speyer & Umgebung.
 6. **Footer** — Logo, © Stahlnaht Metallbau · Timo Betz, Links zu Impressum & Datenschutz.
 
 ## 5. Interaktion & Feinschliff
@@ -74,11 +81,15 @@ Fixierte, transparente Navigation oben (wird beim Scrollen dezent navy), springt
 **Vorhanden:**
 - Logo (`assets/images/logo.jpeg`) — Silber auf Navy
 - 3 echte Projektfotos der Loft-Treppe (`treppe-detail`, `treppe-frontal`, `treppe-galerie`)
-- LinkedIn-Profil von Timo
+- **Kontaktdaten:**
+  - Telefon/WhatsApp: `+4917682137608`
+  - Telegram: `@Timobetz`
+  - E-Mail: `info@stahlnaht.de`
+  - LinkedIn: `https://www.linkedin.com/in/timo-betz-59357b321`
 
 **Platzhalter (später von Timo zu liefern):**
 - Portrait-Foto
-- WhatsApp-Nummer, Telegram-Handle, E-Mail-Adresse
+- Instagram-Link (kommt später)
 - Impressums-/Datenschutz-Angaben
 - Weitere Projektfotos
 
