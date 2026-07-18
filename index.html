@@ -38,12 +38,17 @@
     /* fade-in on scroll */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { transition: none; }
+    }
   </style>
+  <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 </head>
 <body class="bg-navy-deep text-silver font-body antialiased">
 
   <!-- NAV -->
-  <nav id="nav" class="fixed top-0 inset-x-0 z-50 transition-colors duration-300">
+  <nav id="nav" aria-label="Hauptnavigation" class="fixed top-0 inset-x-0 z-50 transition-colors duration-300">
     <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
       <a href="#top" class="font-head font-bold tracking-widest text-white text-lg">STAHLNAHT</a>
       <div class="hidden md:flex items-center gap-8 text-sm tracking-wide">
@@ -186,8 +191,8 @@
 </section>
 
 <!-- LIGHTBOX -->
-<div id="lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/90 p-4">
-  <button type="button" onclick="closeLightbox()" aria-label="Schließen"
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Projektbild" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/90 p-4">
+  <button type="button" id="lightbox-close" onclick="closeLightbox()" aria-label="Schließen"
           class="absolute top-5 right-6 text-white/80 hover:text-white text-4xl leading-none">&times;</button>
   <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-full rounded-lg object-contain">
 </div>
@@ -200,32 +205,32 @@
     <div class="grid sm:grid-cols-2 gap-4 text-left">
       <a href="https://wa.me/4917682137608" target="_blank" rel="noopener"
          class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
-        <span class="text-2xl">💬</span>
+        <span class="text-2xl" aria-hidden="true">💬</span>
         <span><span class="block text-white font-semibold">WhatsApp</span><span class="block text-silver/60 text-sm">+49 176 82137608</span></span>
       </a>
       <a href="https://t.me/Timobetz" target="_blank" rel="noopener"
          class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
-        <span class="text-2xl">✈️</span>
+        <span class="text-2xl" aria-hidden="true">✈️</span>
         <span><span class="block text-white font-semibold">Telegram</span><span class="block text-silver/60 text-sm">@Timobetz</span></span>
       </a>
       <a href="tel:+4917682137608"
          class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
-        <span class="text-2xl">📞</span>
+        <span class="text-2xl" aria-hidden="true">📞</span>
         <span><span class="block text-white font-semibold">Anrufen</span><span class="block text-silver/60 text-sm">+49 176 82137608</span></span>
       </a>
       <a href="mailto:info@stahlnaht.de"
          class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
-        <span class="text-2xl">✉️</span>
+        <span class="text-2xl" aria-hidden="true">✉️</span>
         <span><span class="block text-white font-semibold">E-Mail</span><span class="block text-silver/60 text-sm">info@stahlnaht.de</span></span>
       </a>
       <a href="https://www.linkedin.com/in/timo-betz-59357b321" target="_blank" rel="noopener"
          class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
-        <span class="text-2xl">in</span>
+        <span class="text-2xl" aria-hidden="true">in</span>
         <span><span class="block text-white font-semibold">LinkedIn</span><span class="block text-silver/60 text-sm">Timo Betz</span></span>
       </a>
       <span
          class="flex items-center gap-4 bg-navy-light/30 border border-dashed border-white/10 rounded-lg px-5 py-4 opacity-60">
-        <span class="text-2xl">📷</span>
+        <span class="text-2xl" aria-hidden="true">📷</span>
         <span><span class="block text-white font-semibold">Instagram</span><span class="block text-silver/60 text-sm">folgt in Kürze</span></span>
       </span>
     </div>
@@ -288,20 +293,30 @@
     // lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    let lightboxTrigger = null;
     function openLightbox(src, alt) {
       lightboxImg.src = src;
       lightboxImg.alt = alt || '';
       lightbox.classList.remove('hidden');
       lightbox.classList.add('flex');
       document.body.style.overflow = 'hidden';
+      lightboxTrigger = document.activeElement;
+      document.getElementById('lightbox-close').focus();
     }
     function closeLightbox() {
       lightbox.classList.add('hidden');
       lightbox.classList.remove('flex');
       lightboxImg.src = '';
       document.body.style.overflow = '';
+      if (lightboxTrigger) lightboxTrigger.focus();
     }
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    lightbox.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' && !lightbox.classList.contains('hidden')) {
+        e.preventDefault();
+        document.getElementById('lightbox-close').focus();
+      }
+    });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
     // scroll reveal
