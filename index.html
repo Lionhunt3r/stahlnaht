@@ -97,12 +97,30 @@
     /* fade-in on scroll */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* staggered reveal delay for grouped cards */
+    .reveal.visible.d1 { transition-delay: .08s; }
+    .reveal.visible.d2 { transition-delay: .16s; }
+    .reveal.visible.d3 { transition-delay: .24s; }
+    /* hero intro: gentle staggered fade-up on load */
+    @keyframes heroIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-in { opacity: 0; animation: heroIn .7s ease forwards; }
+    .hero-in.h1 { animation-delay: .05s; }
+    .hero-in.h2 { animation-delay: .18s; }
+    .hero-in.h3 { animation-delay: .34s; }
+    .hero-in.h4 { animation-delay: .5s; }
+    /* subtle lift on hover for cards */
+    .lift { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .lift:hover { transform: translateY(-4px); box-shadow: 0 12px 28px -12px rgba(0,0,0,.5); }
+    /* subtle lift on buttons */
+    .btn-lift { transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease; }
+    .btn-lift:hover { transform: translateY(-2px); }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .reveal { transition: none; }
+      .reveal, .lift, .btn-lift { transition: none; }
+      .hero-in { animation: none; opacity: 1; }
     }
   </style>
-  <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+  <noscript><style>.reveal{opacity:1 !important;transform:none !important;}.hero-in{opacity:1 !important;animation:none !important;}</style></noscript>
 </head>
 <body class="bg-navy-deep text-silver font-body antialiased">
 
@@ -130,21 +148,21 @@
     <div class="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/70 to-navy-deep"></div>
   </div>
   <div class="relative max-w-6xl mx-auto px-5 w-full">
-    <p class="font-head tracking-[0.3em] text-silver text-sm mb-4">STAHLNAHT · METALLBAU</p>
-    <h1 class="font-head font-bold text-white text-5xl sm:text-6xl md:text-7xl leading-none">
+    <p class="hero-in h1 font-head tracking-[0.3em] text-silver text-sm mb-4">STAHLNAHT · METALLBAU</p>
+    <h1 class="hero-in h2 font-head font-bold text-white text-5xl sm:text-6xl md:text-7xl leading-none">
       PRÄZISION<br>IN STAHL
     </h1>
-    <p class="mt-6 text-lg text-silver max-w-md">
+    <p class="hero-in h3 mt-6 text-lg text-silver max-w-md">
       Individuelle Stahlkonstruktionen, Geländer und Treppen —
       sauberes Handwerk mit Präzision aus der Luftfahrt. In Speyer und Umkreis.
     </p>
-    <div class="mt-8 flex flex-wrap gap-4">
+    <div class="hero-in h4 mt-8 flex flex-wrap gap-4">
       <a href="https://wa.me/4917682137608" target="_blank" rel="noopener"
-         class="bg-silver text-navy-deep font-semibold px-6 py-3 rounded hover:bg-white transition">
+         class="btn-lift bg-silver text-navy-deep font-semibold px-6 py-3 rounded hover:bg-white">
         Per WhatsApp anfragen
       </a>
       <a href="#referenzen"
-         class="border border-silver/50 text-silver font-semibold px-6 py-3 rounded hover:border-silver hover:text-white transition">
+         class="btn-lift border border-silver/50 text-silver font-semibold px-6 py-3 rounded hover:border-silver hover:text-white">
         Projekte ansehen
       </a>
     </div>
@@ -156,25 +174,25 @@
     <h2 class="font-head font-bold text-white text-3xl sm:text-4xl mb-12">Was ich baue</h2>
     <div class="grid sm:grid-cols-2 gap-6">
 
-      <div class="reveal bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40 transition">
+      <div class="reveal lift bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40">
         <svg class="w-9 h-9 text-oak mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M6 21V9m4 12V9m4 12V9m4 12V9M4 9h16L12 3 4 9Z"/></svg>
         <h3 class="font-head font-semibold text-white text-xl mb-2">Geländer & Treppen</h3>
         <p class="text-silver/80 text-sm leading-relaxed">Innen- und Außentreppen, Geländer und Handläufe — filigran, stabil und exakt nach Maß gefertigt.</p>
       </div>
 
-      <div class="reveal bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40 transition">
+      <div class="reveal d1 lift bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40">
         <svg class="w-9 h-9 text-oak mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4v10l-9 4-9-4V7Z M3 7l9 4 9-4 M12 11v10"/></svg>
         <h3 class="font-head font-semibold text-white text-xl mb-2">Individuelle Stahlkonstruktionen</h3>
         <p class="text-silver/80 text-sm leading-relaxed">Von der Planung über die Fertigung bis zur Montage — maßgeschneiderte Konstruktionen, genau nach deinen Vorgaben.</p>
       </div>
 
-      <div class="reveal bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40 transition">
+      <div class="reveal d2 lift bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40">
         <svg class="w-9 h-9 text-oak mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 3L4 14h7l-1 7 9-11h-7l1-7Z"/></svg>
         <h3 class="font-head font-semibold text-white text-xl mb-2">Schweißarbeiten</h3>
         <p class="text-silver/80 text-sm leading-relaxed">Saubere, langlebige Schweißnähte — als gelernter Schweißer und Industriemeister mit Anspruch an höchste Qualität.</p>
       </div>
 
-      <div class="reveal bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40 transition">
+      <div class="reveal d3 lift bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40">
         <svg class="w-9 h-9 text-oak mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2-2 2.5-2.5Z"/></svg>
         <h3 class="font-head font-semibold text-white text-xl mb-2">Metallbau & Reparaturen</h3>
         <p class="text-silver/80 text-sm leading-relaxed">Allgemeine Metallbauarbeiten, Anpassungen und Reparaturen — zuverlässig und termintreu ausgeführt.</p>
@@ -226,19 +244,19 @@
       <h2 class="font-head font-bold text-white text-3xl sm:text-4xl mb-12">In drei Schritten zum fertigen Projekt</h2>
       <div class="grid sm:grid-cols-3 gap-6">
 
-        <div class="reveal bg-navy-light/40 border border-white/5 rounded-lg p-7">
+        <div class="reveal lift bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40">
           <div class="font-head font-bold text-oak text-4xl mb-3">1</div>
           <h3 class="font-head font-semibold text-white text-lg mb-2">Anfrage</h3>
           <p class="text-silver/80 text-sm leading-relaxed">Schreib mir per WhatsApp oder Telegram — gern mit Foto und Maßen. So verstehe ich dein Projekt sofort.</p>
         </div>
 
-        <div class="reveal bg-navy-light/40 border border-white/5 rounded-lg p-7">
+        <div class="reveal d1 lift bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40">
           <div class="font-head font-bold text-oak text-4xl mb-3">2</div>
           <h3 class="font-head font-semibold text-white text-lg mb-2">Angebot & Termin</h3>
           <p class="text-silver/80 text-sm leading-relaxed">Du bekommst ein transparentes Festpreis-Angebot — kostenlos und unverbindlich. Passt es, machen wir einen Termin.</p>
         </div>
 
-        <div class="reveal bg-navy-light/40 border border-white/5 rounded-lg p-7">
+        <div class="reveal d2 lift bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40">
           <div class="font-head font-bold text-oak text-4xl mb-3">3</div>
           <h3 class="font-head font-semibold text-white text-lg mb-2">Fertigung & Montage</h3>
           <p class="text-silver/80 text-sm leading-relaxed">Ich fertige deine Konstruktion und wir montieren sie sauber bei dir vor Ort — termintreu und zuverlässig.</p>
@@ -342,32 +360,32 @@
 
     <div class="grid sm:grid-cols-2 gap-4 text-left">
       <a href="https://wa.me/4917682137608" target="_blank" rel="noopener"
-         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
+         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 btn-lift">
         <span class="text-2xl" aria-hidden="true">💬</span>
         <span><span class="block text-white font-semibold">WhatsApp</span><span class="block text-silver/60 text-sm">+49 176 82137608</span></span>
       </a>
       <a href="https://t.me/Timobetz" target="_blank" rel="noopener"
-         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
+         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 btn-lift">
         <span class="text-2xl" aria-hidden="true">✈️</span>
         <span><span class="block text-white font-semibold">Telegram</span><span class="block text-silver/60 text-sm">@Timobetz</span></span>
       </a>
       <a href="tel:+4917682137608"
-         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
+         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 btn-lift">
         <span class="text-2xl" aria-hidden="true">📞</span>
         <span><span class="block text-white font-semibold">Anrufen</span><span class="block text-silver/60 text-sm">+49 176 82137608</span></span>
       </a>
       <a href="mailto:info@stahlnaht.de"
-         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
+         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 btn-lift">
         <span class="text-2xl" aria-hidden="true">✉️</span>
         <span><span class="block text-white font-semibold">E-Mail</span><span class="block text-silver/60 text-sm">info@stahlnaht.de</span></span>
       </a>
       <a href="https://www.linkedin.com/in/timo-betz-59357b321" target="_blank" rel="noopener"
-         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
+         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 btn-lift">
         <span class="text-2xl" aria-hidden="true">in</span>
         <span><span class="block text-white font-semibold">LinkedIn</span><span class="block text-silver/60 text-sm">Timo Betz</span></span>
       </a>
       <a href="https://www.instagram.com/stahlnaht_metallbau" target="_blank" rel="noopener"
-         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 transition">
+         class="flex items-center gap-4 bg-navy-light/50 border border-white/10 hover:border-oak/50 rounded-lg px-5 py-4 btn-lift">
         <span class="text-2xl" aria-hidden="true">📷</span>
         <span><span class="block text-white font-semibold">Instagram</span><span class="block text-silver/60 text-sm">@stahlnaht_metallbau</span></span>
       </a>
