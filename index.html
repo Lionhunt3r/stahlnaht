@@ -114,6 +114,11 @@
     /* subtle lift on buttons */
     .btn-lift { transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease; }
     .btn-lift:hover { transform: translateY(-2px); }
+    /* mobile: gentler & faster scroll reveals (less jumpy on fast phone scrolling) */
+    @media (max-width: 768px) {
+      .reveal { transform: translateY(12px); transition: opacity .4s ease, transform .4s ease; }
+      .reveal.visible.d1, .reveal.visible.d2, .reveal.visible.d3 { transition-delay: 0s; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .reveal, .lift, .btn-lift { transition: none; }
