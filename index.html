@@ -194,7 +194,7 @@
       <div class="reveal d2 lift bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40">
         <svg class="w-9 h-9 text-oak mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 3L4 14h7l-1 7 9-11h-7l1-7Z"/></svg>
         <h3 class="font-head font-semibold text-white text-xl mb-2">Schweißarbeiten</h3>
-        <p class="text-silver/80 text-sm leading-relaxed">Saubere, langlebige Schweißnähte — als gelernter Schweißer und Meister im Metallbau mit Anspruch an höchste Qualität.</p>
+        <p class="text-silver/80 text-sm leading-relaxed">Saubere, langlebige Schweißnähte — vom gelernten Schweißer und Meister, ausgeführt mit Anspruch an höchste Qualität.</p>
       </div>
 
       <div class="reveal d3 lift bg-navy-light/40 border border-white/5 rounded-lg p-7 hover:border-oak/40">
@@ -224,7 +224,7 @@
         </span>
         <span class="inline-flex items-center gap-2 rounded-full border border-oak/40 bg-oak/10 px-4 py-2 text-sm text-silver">
           <span class="h-1.5 w-1.5 rounded-full bg-oak" aria-hidden="true"></span>
-          Meister im Metallbau
+          Meister
         </span>
         <span class="inline-flex items-center gap-2 rounded-full border border-oak/40 bg-oak/10 px-4 py-2 text-sm text-silver">
           <span class="h-1.5 w-1.5 rounded-full bg-oak" aria-hidden="true"></span>
@@ -269,7 +269,7 @@
   <div class="max-w-6xl mx-auto">
     <p class="font-head tracking-[0.3em] text-oak text-xs mb-3">REFERENZEN</p>
     <h2 class="font-head font-bold text-white text-3xl sm:text-4xl mb-3">Ausgewählte Projekte</h2>
-    <p class="text-silver/70 mb-12 max-w-lg">Eine maßgefertigte Stahltreppe mit Eichenstufen und filigranem Geländer — geplant, gefertigt und montiert von Stahlnaht.</p>
+    <p class="text-silver/70 mb-12 max-w-lg">Maßgefertigte Treppen und Geländer aus Stahl — geplant, gefertigt und montiert von Stahlnaht.</p>
 
     <!-- To add a new project: copy one button block below and change src/alt. -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -288,6 +288,18 @@
       <button type="button" onclick="openLightbox('assets/images/treppe-detail.jpeg','Detail der Stahltreppe')"
               class="reveal gallery-item group relative overflow-hidden rounded-lg aspect-[3/4] bg-navy-light">
         <img src="assets/images/treppe-detail.jpeg" alt="Detail der Stahltreppe" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <span class="absolute inset-0 bg-navy-deep/0 group-hover:bg-navy-deep/20 transition"></span>
+      </button>
+
+      <button type="button" onclick="openLightbox('assets/images/treppengelaender-aufgang.jpeg','Schwarzes Treppengeländer entlang einer Holztreppe')"
+              class="reveal gallery-item group relative overflow-hidden rounded-lg aspect-[3/4] bg-navy-light">
+        <img src="assets/images/treppengelaender-aufgang.jpeg" alt="Schwarzes Treppengeländer entlang einer Holztreppe" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <span class="absolute inset-0 bg-navy-deep/0 group-hover:bg-navy-deep/20 transition"></span>
+      </button>
+
+      <button type="button" onclick="openLightbox('assets/images/treppengelaender-podest.jpeg','Schwarzes Treppengeländer am oberen Podest')"
+              class="reveal gallery-item group relative overflow-hidden rounded-lg aspect-[4/3] sm:col-span-2 lg:col-span-2 bg-navy-light">
+        <img src="assets/images/treppengelaender-podest.jpeg" alt="Schwarzes Treppengeländer am oberen Podest" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
         <span class="absolute inset-0 bg-navy-deep/0 group-hover:bg-navy-deep/20 transition"></span>
       </button>
     </div>
@@ -393,12 +405,11 @@
 </section>
   <footer id="footer" class="bg-navy-deep border-t border-white/10 px-5 py-12">
   <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-    <div class="flex items-center gap-3">
-      <img src="assets/images/logo.jpeg" alt="Stahlnaht Metallbau Logo" loading="lazy" class="h-12 w-auto rounded">
-      <div>
-        <div class="font-head font-bold text-white tracking-wider">STAHLNAHT METALLBAU</div>
-        <div class="text-silver/50 text-sm">Timo Betz · Speyer & Umgebung</div>
-      </div>
+    <div class="flex flex-col items-center sm:items-start">
+      <a href="#top" aria-label="Zurück zum Seitenanfang">
+        <img src="assets/images/stahlnaht-logo.jpeg" alt="Stahlnaht Metallbau Logo" loading="lazy" class="w-52 sm:w-56 h-auto rounded-lg">
+      </a>
+      <div class="mt-2 text-silver/50 text-sm">Speyer &amp; Umgebung</div>
     </div>
     <div class="text-silver/50 text-sm">
       <a href="#impressum" class="hover:text-white transition">Impressum</a>
